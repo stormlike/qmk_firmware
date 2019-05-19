@@ -250,34 +250,23 @@ void encoder_update(bool clockwise) {
     }
   } else {
     if (clockwise) {
-      register_code(KC_PGDN);
-      unregister_code(KC_PGDN);
+      #ifdef MOUSEKEY_ENABLE
+        register_code(KC_MS_WH_DOWN);
+        unregister_code(KC_MS_WH_DOWN);
+      #else
+        register_code(KC_PGDN);
+        unregister_code(KC_PGDN);
+      #endif
     } else {
-      register_code(KC_PGUP);
-      unregister_code(KC_PGUP);
+      #ifdef MOUSEKEY_ENABLE
+        register_code(KC_MS_WH_UP);
+        unregister_code(KC_MS_WH_UP);
+      #else
+        register_code(KC_PGUP);
+        unregister_code(KC_PGUP);
+      #endif
     }
   }
-}
-
-void dip_update(uint8_t index, bool active) {
-  switch (index) {
-    case 0:
-      if (active) {
-        layer_on(_ADJUST);
-      } else {
-        layer_off(_ADJUST);
-      }
-      break;
-    case 1:
-      if (active) {
-        muse_mode = true;
-      } else {
-        muse_mode = false;
-        #ifdef AUDIO_ENABLE
-          stop_all_notes();
-        #endif
-      }
-   }
 }
 
 void matrix_scan_user(void) {
