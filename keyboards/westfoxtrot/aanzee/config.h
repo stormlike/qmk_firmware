@@ -23,9 +23,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID       0x21FF
 #define PRODUCT_ID      0xAA01
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    westfoxtrot
-#define PRODUCT         aanzee
-#define DESCRIPTION     QMK Firmware for the Aanzee PCB
+#define MANUFACTURER    Maartenwut
+#define PRODUCT         Ta-65
+#define DESCRIPTION     QMK Firmware for the Ta-65 PCB
 
 /* key matrix size */
 #define MATRIX_ROWS 5
